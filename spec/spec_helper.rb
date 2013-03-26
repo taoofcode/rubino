@@ -1,7 +1,6 @@
 $: << 'lib'
 
 require 'rubino'
-require 'rack/test'
 require 'devtools'
 Devtools.init_spec_helper
 
