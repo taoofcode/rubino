@@ -3,7 +3,7 @@ Rubino
 
 [![Build Status](https://secure.travis-ci.org/taoofcode/rubino.png?branch=master)](http://travis-ci.org/taoofcode/rubino)
 [![Dependency Status](https://gemnasium.com/taoofcode/rubino.png)](https://gemnasium.com/taoofcode/rubino)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/taoofcode/rubino)
+[![Code Climate](https://codeclimate.com/github/taoofcode/rubino.png)](https://codeclimate.com/github/taoofcode/rubino)
 
 Arduino toolchain for building and flashing Arduino projects.
 
