@@ -10,7 +10,7 @@ describe Rubino::Uploader, '#upload' do
 
   let(:args) do
     [
-      "/usr/share/arduino/hardware/tools/avrdude",
+      "avrdude",
       "-V",
       "-F",
       "-c", "arduino",
@@ -18,7 +18,7 @@ describe Rubino::Uploader, '#upload' do
       "-p", "atmega328p",
       "-P", "/dev/ttyACM0",
       "-U", "flash:w:#{file}",
-      "-C", "/usr/share/arduino/hardware/tools/avrdude.conf"
+      "-C", "/etc/avrdude.conf"
     ]
   end
 

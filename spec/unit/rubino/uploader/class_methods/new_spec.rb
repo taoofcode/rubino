@@ -20,7 +20,9 @@ describe Rubino::Uploader, '.new' do
 
     its(:arduino_port) { should eq '/dev/ttyACM0' }
 
-    its(:avrdude_basedir) { should eq '/usr/share/arduino/hardware/tools' }
+    its(:avrdude_path) { should eq 'avrdude' }
+    
+    its(:avrdude_config) { should eq '/etc/avrdude.conf' }
 
     its(:programmer_id) { should eq 'arduino' }
 
@@ -33,7 +35,8 @@ describe Rubino::Uploader, '.new' do
   context 'without defaults' do
     
     let_mock(:arduino_port)
-    let_mock(:avrdude_basedir)
+    let_mock(:avrdude_path)
+    let_mock(:avrdude_config)
     let_mock(:programmer_id)
     let_mock(:baudrate)
     let_mock(:mcu_type)
@@ -42,7 +45,8 @@ describe Rubino::Uploader, '.new' do
       {
         :file => file,
         :arduino_port => arduino_port,
-        :avrdude_basedir => avrdude_basedir,
+        :avrdude_path => avrdude_path,
+        :avrdude_config => avrdude_config,
         :programmer_id => programmer_id,
         :baudrate => baudrate,
         :mcu_type => mcu_type
@@ -53,7 +57,9 @@ describe Rubino::Uploader, '.new' do
 
     its(:arduino_port) { should be arduino_port }
 
-    its(:avrdude_basedir) { should be avrdude_basedir }
+    its(:avrdude_path) { should be avrdude_path }
+    
+    its(:avrdude_config) { should be avrdude_config }
 
     its(:programmer_id) { should be programmer_id }
 

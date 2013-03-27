@@ -5,7 +5,8 @@ module Rubino
 
     include Anima.new(
       :arduino_port,
-      :avrdude_basedir,
+      :avrdude_path,
+      :avrdude_config,
       :programmer_id,
       :baudrate,
       :mcu_type,
@@ -38,7 +39,8 @@ module Rubino
     #
     def self.new(attributes)
       attributes[:arduino_port] ||= '/dev/ttyACM0'
-      attributes[:avrdude_basedir] ||= '/usr/share/arduino/hardware/tools'
+      attributes[:avrdude_path] ||= 'avrdude'
+      attributes[:avrdude_config] ||= '/etc/avrdude.conf'
       attributes[:programmer_id] ||= 'arduino'
       attributes[:baudrate] ||= 115200
       attributes[:mcu_type] ||= 'atmega328p'
@@ -84,35 +86,10 @@ module Rubino
         -p #{mcu_type}
         -P #{arduino_port}
         -U flash:w:#{file}
-        -C #{config_path}
+        -C #{avrdude_config}
       )
     end
     memoize :command
-
-
-    # Return path to avrdude executable
-    #
-    # @return [String]
-    #   path to avrdude executable
-    #
-    # @api private
-    #
-    def avrdude_path
-      File.join(avrdude_basedir, 'avrdude')
-    end
-    memoize :avrdude_path
-    
-    # Return path to avrdude config file
-    #
-    # @return [String]
-    #   path to avrdude config file
-    #
-    # @api private
-    #
-    def config_path
-      "#{avrdude_path}.conf"
-    end
-    memoize :config_path
   end
 end
 
