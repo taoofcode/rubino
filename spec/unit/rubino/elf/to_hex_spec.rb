@@ -24,10 +24,9 @@ describe Rubino::Elf, '#to_hex' do
     Rubino::Executor.stub(:execute => true)
   end
 
-  it { should be object }
+  it { object.send(:command) == args }
 
-  its(:command) { should eq args }
-
+  it { should eq Rubino::Hex.new(:source => target) }
 
   it 'should call Executor.execute' do
     Rubino::Executor.should_receive(:execute)

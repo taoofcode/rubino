@@ -13,14 +13,14 @@ module Rubino
     #   object = Rubino::Elf.new(:source => './example.elf')
     #   object.to_hex
     #
-    # @return [self]
+    # @return [Hex]
     #   
     # @api public
     #
     def to_hex
       Executor.execute(command)
 
-      self
+      Hex.new(:source => target)
     end
 
   private
