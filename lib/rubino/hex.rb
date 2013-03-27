@@ -16,7 +16,7 @@ module Rubino
     # Upload hex file
     #
     # @example
-    #   object = Rubino::Uploader.new(:file => './example.hex')
+    #   object = Rubino::Uploader.new(:source => './example.hex')
     #   object.upload
     #
     # @return [self]
