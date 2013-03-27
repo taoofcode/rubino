@@ -6,5 +6,5 @@ module Rubino
 end
 
 require 'rubino/executor.rb'
-require 'rubino/uploader.rb'
+require 'rubino/hex.rb'
 require 'rubino/elf.rb'

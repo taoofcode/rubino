@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe Rubino::Uploader, '#upload' do
+describe Rubino::Hex, '#upload' do
 
   subject { object.upload }
 
-  let(:object) { described_class.new( :file => file ) }
+  let(:object) { described_class.new( :source => source ) }
 
-  let_mock(:file)
+  let_mock(:source)
 
   let(:args) do
     [
@@ -17,7 +17,7 @@ describe Rubino::Uploader, '#upload' do
       "-b", "115200",
       "-p", "atmega328p",
       "-P", "/dev/ttyACM0",
-      "-U", "flash:w:#{file}",
+      "-U", "flash:w:#{source}",
       "-C", "/etc/avrdude.conf"
     ]
   end

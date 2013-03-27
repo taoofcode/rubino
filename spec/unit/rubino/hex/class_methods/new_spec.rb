@@ -1,22 +1,22 @@
 require 'spec_helper'
 
-describe Rubino::Uploader, '.new' do
+describe Rubino::Hex, '.new' do
 
   subject { object.new(attributes) }
 
   let(:object) { described_class }
 
-  let_mock(:file)
+  let_mock(:source)
 
   context 'with defaults' do
   
     let(:attributes) do
       {
-        :file => file
+        :source => source
       }
     end
 
-    its(:file) { should be file }
+    its(:source) { should be source }
 
     its(:arduino_port) { should eq '/dev/ttyACM0' }
 
@@ -43,7 +43,7 @@ describe Rubino::Uploader, '.new' do
 
     let(:attributes) do
       {
-        :file => file,
+        :source => source,
         :arduino_port => arduino_port,
         :avrdude_path => avrdude_path,
         :avrdude_config => avrdude_config,
@@ -53,7 +53,7 @@ describe Rubino::Uploader, '.new' do
       }
     end
 
-    its(:file) { should be file }
+    its(:source) { should be source }
 
     its(:arduino_port) { should be arduino_port }
 

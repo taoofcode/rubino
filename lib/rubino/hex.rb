@@ -1,6 +1,6 @@
 module Rubino
   # Avrdude wrapper for uploading arduino flash files
-  class Uploader
+  class Hex
     include Adamantium
 
     include Anima.new(
@@ -10,10 +10,10 @@ module Rubino
       :programmer_id,
       :baudrate,
       :mcu_type,
-      :file
+      :source
     )
     
-    # Upload file
+    # Upload hex file
     #
     # @example
     #   object = Rubino::Uploader.new(:file => './example.hex')
@@ -67,7 +67,7 @@ module Rubino
         -b #{baudrate}
         -p #{mcu_type}
         -P #{arduino_port}
-        -U flash:w:#{file}
+        -U flash:w:#{source}
         -C #{avrdude_config}
       )
     end
