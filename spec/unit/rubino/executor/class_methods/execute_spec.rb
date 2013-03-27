@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Rubino::Uploader, '.execute' do
+describe Rubino::Executor, '.execute' do
 
   subject { object.execute(args) }
   

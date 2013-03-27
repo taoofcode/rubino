@@ -23,7 +23,7 @@ describe Rubino::Uploader, '#upload' do
   end
 
   before do
-    ::Kernel.stub(:system => true)
+    Rubino::Executor.stub(:execute => true)
   end
 
   it { should be object }
@@ -31,9 +31,9 @@ describe Rubino::Uploader, '#upload' do
   its(:command) { should eq args }
 
 
-  it 'should call Kernel::system' do
-    ::Kernel.should_receive(:system)
-    #.with(*args)
+  it 'should call Executor.execute' do
+    Rubino::Executor.should_receive(:execute)
+    .with(args)
     
     subject
   end
